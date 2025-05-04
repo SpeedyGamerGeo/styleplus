@@ -15,7 +15,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   
   return (
     <div 
-      className="fashion-card group animate-fade-in"
+      className="fashion-card group animate-fade-in bg-white rounded-sm overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -24,7 +24,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <img 
             src={product.image} 
             alt={product.name} 
-            className="fashion-card-img"
+            className="fashion-card-img w-full h-64 object-cover transition-transform duration-700 ease-in-out"
+            style={{ transform: isHovered ? 'scale(1.05)' : 'scale(1)' }}
           />
           
           {/* Quick view overlay */}
@@ -100,6 +101,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                   color === "Бордовый" ? "bg-red-800" :
                   color === "Тёмно-синий" ? "bg-indigo-900" :
                   color === "Клетка" ? "bg-gradient-to-r from-gray-400 to-gray-600" :
+                  color === "Светло-голубой" ? "bg-blue-200" :
                   "bg-gray-200";
                   
                 return (
